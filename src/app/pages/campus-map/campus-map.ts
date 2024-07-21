@@ -32,20 +32,6 @@ import { PageService } from '../../page.service';
         this.pageService.setCurrentPage('campus');
         this.router.navigate(['/app/tabs/campus-map']);
       }
-      
-      isActive(page: string): boolean {
-        return this.pageService.getCurrentPage() === page;
-      }
-
-      getIconName(page: string): string {
-        if (page === 'city') {
-          return this.isActive('city') ? 'map' : 'map-outline';
-        }
-        if (page === 'campus') {
-          return this.isActive('campus') ? 'navigate' : 'navigate-outline';
-        }
-        return '';
-      }
 
     }        
 

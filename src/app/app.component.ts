@@ -37,7 +37,7 @@ export class AppComponent implements OnInit {
       url: '/app/tabs/schedule',
       icon: 'calendar'
     },
-  {
+/*   {
       title: 'City Map',
       url: '/app/tabs/map',
       icon: 'map'
@@ -47,6 +47,24 @@ export class AppComponent implements OnInit {
       url: '/app/tabs/campus-map',
       icon: 'navigate'
     },
+ */
+    {
+      title: 'Maps',
+      url: '',
+      icon: 'map',
+      children: [
+        {
+          title: 'City Map',
+          url: '/app/tabs/map',
+          icon: 'map'
+        },
+        {
+          title: 'Campus Map',
+          url: '/app/tabs/campus-map',
+          icon: 'navigate'
+        }
+      ]
+    },
     {
       title: 'About',
       url: '/app/tabs/about',
@@ -55,6 +73,7 @@ export class AppComponent implements OnInit {
   ];
   loggedIn = false;
   dark = false;
+  submenuOpen = false;
 
   constructor(
     private menu: MenuController,
@@ -141,6 +160,10 @@ export class AppComponent implements OnInit {
     });
   }
 
+  toggleSubmenu() {
+    this.submenuOpen = !this.submenuOpen;
+  }
+
   /* checkLoginStatus() {
     return this.userData.isLoggedIn().then(loggedIn => {
       return this.updateLoggedInStatus(loggedIn);
@@ -173,11 +196,11 @@ export class AppComponent implements OnInit {
     });
   } */
 
-  openTutorial() {
+  /* openTutorial() {
     this.menu.enable(false);
     this.storage.set('ion_did_tutorial', false);
     this.router.navigateByUrl('/tutorial');
-  }
+  } */
 
   /* initPushNotifications() {
     console.log('initializing push notifications')
