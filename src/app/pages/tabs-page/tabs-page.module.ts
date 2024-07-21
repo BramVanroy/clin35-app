@@ -9,8 +9,10 @@ import { AboutModule } from '../about/about.module';
 import { MapModule } from '../map/map.module';
 import { ScheduleModule } from '../schedule/schedule.module';
 import { SessionDetailModule } from '../session-detail/session-detail.module';
-import { SpeakerDetailModule } from '../speaker-detail/speaker-detail.module';
-import { SpeakerListModule } from '../speaker-list/speaker-list.module';
+import { NewsModule } from '../news/news.module';
+import { NewsDetailModule } from '../news-detail/news-detail.module';
+//import { SpeakerDetailModule } from '../speaker-detail/speaker-detail.module';
+//import { SpeakerListModule } from '../speaker-list/speaker-list.module';
 
 @NgModule({
   imports: [
@@ -20,8 +22,10 @@ import { SpeakerListModule } from '../speaker-list/speaker-list.module';
     MapModule,
     ScheduleModule,
     SessionDetailModule,
-    SpeakerDetailModule,
-    SpeakerListModule,
+    NewsModule,
+    NewsDetailModule,
+    //SpeakerDetailModule,
+    //SpeakerListModule,
     TabsPageRoutingModule
   ],
   declarations: [

@@ -18,12 +18,12 @@ export class ConferenceData {
       return of(this.data);
     } else {
       return this.http
-        .get('assets/data/data.json')
-        .pipe(map(this.processData, this));
+        .get('assets/data/data_test.json');
+        //.pipe(map(this.processData, this));
     }
   }
 
-  processData(data: any) {
+  /* processData(data: any) {
     // just some good 'ol JS fun with objects and arrays
     // build up the data by linking speakers to sessions
     this.data = data;
@@ -53,16 +53,16 @@ export class ConferenceData {
 
     return this.data;
   }
-
+ */
   getTimeline(
-    dayIndex: number,
+    dayIndex: string,
     queryText = '',
     excludeTracks: any[] = [],
     segment = 'all'
   ) {
     return this.load().pipe(
       map((data: any) => {
-        const day = data.schedule[dayIndex];
+        const day = data.schedule[0];
         day.shownSessions = 0;
 
         queryText = queryText.toLowerCase().replace(/,|\.|-/g, ' ');
@@ -70,10 +70,11 @@ export class ConferenceData {
 
         day.groups.forEach((group: any) => {
           group.hide = true;
-
+          console.log(group);
           group.sessions.forEach((session: any) => {
             // check if this session should show or not
-            this.filterSession(session, queryWords, excludeTracks, segment);
+            console.log(session, queryWords, excludeTracks, segment, dayIndex);
+            this.filterSession(session, queryWords, excludeTracks, segment, dayIndex);
 
             if (!session.hide) {
               // if this session is not hidden then this group should show
@@ -83,6 +84,7 @@ export class ConferenceData {
           });
         });
 
+        //console.log(day);
         return day;
       })
     );
@@ -92,7 +94,8 @@ export class ConferenceData {
     session: any,
     queryWords: string[],
     excludeTracks: any[],
-    segment: string
+    segment: string,
+    dayIndex: string
   ) {
     let matchesQueryText = false;
     if (queryWords.length) {
@@ -120,18 +123,25 @@ export class ConferenceData {
     // then this session does not pass the segment test
     let matchesSegment = false;
     if (segment === 'favorites') {
-      if (this.user.hasFavorite(session.name)) {
+      if (this.user.hasFavorite(session.id)) {
         matchesSegment = true;
       }
     } else {
       matchesSegment = true;
     }
 
+    let matchesDay = false;
+    if (session.days.indexOf(dayIndex) > -1) {
+      matchesDay = true;
+    }
+
     // all tests must be true if it should not be hidden
-    session.hide = !(matchesQueryText && matchesTracks && matchesSegment);
+    console.log(session.days)
+    console.log(matchesQueryText, matchesTracks, matchesSegment, matchesDay);
+    session.hide = !(matchesQueryText && matchesTracks && matchesSegment && matchesDay);
   }
 
-  getSpeakers() {
+  /* getSpeakers() {
     return this.load().pipe(
       map((data: any) => {
         return data.speakers.sort((a: any, b: any) => {
@@ -142,7 +152,7 @@ export class ConferenceData {
       })
     );
   }
-
+ */
   getTracks() {
     return this.load().pipe(
       map((data: any) => {

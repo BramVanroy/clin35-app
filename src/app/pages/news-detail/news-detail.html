@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button [defaultHref]="defaultHref"></ion-back-button>
+    </ion-buttons>
+    <ion-title *ngIf="newsItem">{{ newsItem?.title }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ng-container *ngIf="newsItem; else loading">
+    <div class="news-detail">
+      <h2>{{ newsItem?.title }}</h2>
+      <p>{{ newsItem?.date }}</p>
+      <p>{{ newsItem?.fullMessage }}</p>
+    </div>
+  </ng-container>
+  <ng-template #loading>
+    <ion-item>
+      <ion-label>
+        <p>Loading news details...</p>
+      </ion-label>
+    </ion-item>
+  </ng-template>
+</ion-content>

@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { TabsPage } from './tabs-page';
 import { SchedulePage } from '../schedule/schedule';
+import { CampusMapPage } from '../campus-map/campus-map';
+
 
 
 const routes: Routes = [
@@ -9,7 +11,20 @@ const routes: Routes = [
     path: 'tabs',
     component: TabsPage,
     children: [
-      {
+        {
+        path: 'news',
+        children: [
+          {
+            path: '',
+            loadChildren: () => import('../news/news.module').then(m => m.NewsModule),
+          },
+          {
+            path: 'detail/:id',
+            loadChildren: () => import('../news-detail/news-detail.module').then(m => m.NewsDetailModule)
+          }
+        ]
+      },
+        {
         path: 'schedule',
         children: [
           {
@@ -19,6 +34,19 @@ const routes: Routes = [
           {
             path: 'session/:sessionId',
             loadChildren: () => import('../session-detail/session-detail.module').then(m => m.SessionDetailModule)
+          }
+        ]
+      },
+      {
+        path: 'campus-map',
+        children: [
+          {
+            path: '',
+            component: CampusMapPage,
+          },
+          {
+            path: '',
+            loadChildren: () => import('../campus-map/campus-map.module').then(m => m.CampusMapModule)
           }
         ]
       },
@@ -63,6 +91,11 @@ const routes: Routes = [
         pathMatch: 'full'
       }
     ]
+  },
+  {
+    path: '',
+    redirectTo: '/app/tabs/schedule',
+    pathMatch: 'full'
   }
 ];
 

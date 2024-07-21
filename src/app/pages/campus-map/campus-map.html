@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Campus Map</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div id="pinch-zoom-container">
+    <img src="https://raw.githubusercontent.com/timvdc/esslli2024/main/kaart.png" alt="Map" />
+  </div>
+
+  <ion-fab slot="fixed" vertical="bottom" horizontal="end">
+    <ion-fab-button>
+      <ion-icon name="chevron-up-circle"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-list side="top">
+      <ion-fab-button (click)="showImageMap()">
+        <ion-icon name="navigate-outline"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button (click)="showOSMMap()">
+        <ion-icon name="map-outline"></ion-icon>
+      </ion-fab-button>
+    </ion-fab-list>
+  </ion-fab>
+
+  </ion-content>
+  

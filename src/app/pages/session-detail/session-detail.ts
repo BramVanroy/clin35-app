@@ -31,7 +31,7 @@ export class SessionDetailPage {
                 this.session = session;
 
                 this.isFavorite = this.userProvider.hasFavorite(
-                  this.session.name
+                  this.session.id
                 );
 
                 break;
@@ -52,11 +52,12 @@ export class SessionDetailPage {
   }
 
   toggleFavorite() {
-    if (this.userProvider.hasFavorite(this.session.name)) {
-      this.userProvider.removeFavorite(this.session.name);
+    console.log('id', this.userProvider, this.session, this.session.id, this.isFavorite)
+    if (this.userProvider.hasFavorite(this.session.id)) {
+      this.userProvider.removeFavorite(this.session.id);
       this.isFavorite = false;
     } else {
-      this.userProvider.addFavorite(this.session.name);
+      this.userProvider.addFavorite(this.session.id);
       this.isFavorite = true;
     }
   }
@@ -64,4 +65,9 @@ export class SessionDetailPage {
   shareSession() {
     console.log('Clicked share session');
   }
+
+  openLink(url: string) {
+    window.open(url, '_blank');
+  }
+
 }

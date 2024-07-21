@@ -1,0 +1,27 @@
+  ion-item.unread {
+    --background: #ebebeb; /* Light blue background for unread items */
+    position: relative;
+  }
+  
+  ion-item.unread::before {
+    content: '•'; /* Unicode for a dot */
+    color: #ff0000; /* Red color for the dot */
+    font-size: 10px; /* Adjust the size of the dot */
+    position: absolute;
+    left: 100px; /* Position the dot to the left */
+    top: 10px;
+  }
+
+
+  ion-item.unread ion-label h2 {
+    font-weight: bold; /* Bold font for unread item titles */
+  }
+  
+  ion-item.unread ion-label p {
+    font-weight: bold; /* Bold font for unread item dates */
+  }
+
+  .clickable {
+    cursor: pointer;
+  }
+  

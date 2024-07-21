@@ -3,11 +3,12 @@ import { RouterModule, Routes } from '@angular/router';
 import { checkTutorialGuard } from './providers/check-tutorial.guard';
 
 const routes: Routes = [
-  {
+   {
     path: '',
-    redirectTo: '/tutorial',
+    redirectTo: '/app/tabs/news',
     pathMatch: 'full'
   },
+  /*
   {
     path: 'account',
     loadChildren: () => import('./pages/account/account.module').then(m => m.AccountModule)
@@ -23,16 +24,16 @@ const routes: Routes = [
   {
     path: 'signup',
     loadChildren: () => import('./pages/signup/signup.module').then(m => m.SignUpModule)
-  },
+  }, */
   {
     path: 'app',
     loadChildren: () => import('./pages/tabs-page/tabs-page.module').then(m => m.TabsModule)
   },
-  {
+ /*  {
     path: 'tutorial',
     loadChildren: () => import('./pages/tutorial/tutorial.module').then(m => m.TutorialModule),
     canMatch: [checkTutorialGuard]
-  }
+  } */
 ];
 
 @NgModule({

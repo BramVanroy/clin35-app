@@ -11,9 +11,9 @@ export class SpeakerListPage {
 
   constructor(public confData: ConferenceData) {}
 
-  ionViewDidEnter() {
+/*   ionViewDidEnter() {
     this.confData.getSpeakers().subscribe((speakers: any[]) => {
       this.speakers = speakers;
     });
   }
-}
+ */}

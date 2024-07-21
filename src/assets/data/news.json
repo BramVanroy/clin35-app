@@ -1,0 +1,18 @@
+{
+    "newsItems": [
+      {
+        "id": "1",
+        "title": "News Item 1",
+        "date": "2024-07-15",
+        "description": "Short description for news item 1.",
+        "fullMessage": "Full message for news item 1."
+      },
+      {
+        "id": "2",
+        "title": "News Item 2",
+        "date": "2024-07-14",
+        "description": "Short description for news item 2.",
+        "fullMessage": "Full message for news item 2."
+      }
+    ]
+  }

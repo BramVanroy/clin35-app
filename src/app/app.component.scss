@@ -91,3 +91,7 @@ ion-menu.ios ion-item ion-icon {
 ion-menu.ios ion-item.selected ion-icon {
   color: var(--ion-color-primary);
 }
+
+ion-list .submenu {
+  padding-left: 20px;
+}
