@@ -4,6 +4,13 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class PageService {
+  private currentPage: string = 'city'; // Default page
 
-  constructor() { }
+  setCurrentPage(page: string) {
+    this.currentPage = page;
+  }
+
+  getCurrentPage(): string {
+    return this.currentPage;
+  }
 }

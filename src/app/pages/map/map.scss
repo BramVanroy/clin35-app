@@ -5,3 +5,11 @@
 ion-fab-button {
   --background: #6899ee;
 }
+
+.active-icon {
+  color: white; /* White text color */
+}
+
+.active-icon ion-icon, .active-icon ion-label {
+  font-weight: bold;
+}
