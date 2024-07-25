@@ -38,11 +38,41 @@ export class SchedulePage implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.setDefaultDayIndex();
     this.user.loadFavorites();
     this.updateSchedule();
 
     this.ios = this.config.get('mode') === 'ios';
   }
+
+  setDefaultDayIndex() {
+    const today = new Date();
+    const scheduleDates = [
+      new Date('2024-07-29'), // Mon 29
+      new Date('2024-07-30'), // Tue 30
+      new Date('2024-07-31'), // Wed 31
+      new Date('2024-08-01'), // Thu 1
+      new Date('2024-08-02'), // Fri 2
+      new Date('2024-08-03'), // Sat 3
+      new Date('2024-08-04'), // Sun 4
+      new Date('2024-08-05'), // Mon 5
+      new Date('2024-08-06'), // Tue 6
+      new Date('2024-08-07'), // Wed 7
+      new Date('2024-08-08'), // Thu 8
+      new Date('2024-08-09'), // Fri 9
+    ];
+
+    const index = scheduleDates.findIndex(date => {
+      return (
+        date.getFullYear() === today.getFullYear() &&
+        date.getMonth() === today.getMonth() &&
+        date.getDate() === today.getDate()
+      );
+    });
+
+    this.dayIndex = index !== -1 ? index.toString() : '0'; // Convert index to string and default to '0'
+  }
+
 
   updateSchedule() {
     // Close any open sliding items when the schedule updates

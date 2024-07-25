@@ -47,10 +47,10 @@
 
 
   <ion-list>
-    <ion-item button (click)="openLink(session.website)">
+    <ion-item *ngIf="session?.website" button (click)="openLink(session.website)">
       <ion-label color="primary">Visit Course Website</ion-label>
     </ion-item>
-    <ion-item button (click)="openLink(session.discord)">
+    <ion-item *ngIf="session?.discord" button (click)="openLink(session.discord)">
       <ion-label color="primary">Join Discord Channel</ion-label>
     </ion-item>
   </ion-list>

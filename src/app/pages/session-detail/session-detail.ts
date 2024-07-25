@@ -29,7 +29,7 @@ export class SessionDetailPage {
             for (const session of group.sessions) {
               if (session && session.id === sessionId) {
                 this.session = session;
-
+                console.log('session', this.session);
                 this.isFavorite = this.userProvider.hasFavorite(
                   this.session.id
                 );
