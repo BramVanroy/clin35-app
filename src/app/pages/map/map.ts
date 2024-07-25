@@ -38,7 +38,7 @@ export class MapPage implements AfterViewInit {
     });
 
     // Initialize the map
-    this.map = L.map(this.mapElement.nativeElement).setView([50.87878, 4.70112], 14);
+    this.map = L.map(this.mapElement.nativeElement).setView([50.86878, 4.70112], 13);
 
     // Set up the OSM layer
     L.tileLayer('https://tile.openstreetmap.be/osmbe/{z}/{x}/{y}.png', {
