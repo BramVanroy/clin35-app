@@ -157,6 +157,23 @@ export class AppComponent implements OnInit {
         StatusBar.hide();
         SplashScreen.hide();
       }
+      this.handleBackButton();
+    });
+  }
+
+  handleBackButton() {
+    const newsUrl = '/app/tabs/news';
+
+    this.platform.backButton.subscribeWithPriority(10, (processNextHandler) => {
+      const currentUrl = this.router.url;
+      if (currentUrl === newsUrl) {
+        navigator['app'].exitApp(); // Close the app
+      } else if (currentUrl.startsWith('/app/tabs')) {
+        this.router.navigateByUrl(newsUrl); // Navigate to the 'News' tab
+      } else {
+        // Allow the default back button action
+        processNextHandler();
+      }
     });
   }
 

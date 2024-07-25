@@ -1,5 +1,5 @@
 import { Component, ElementRef, Inject, ViewChild, AfterViewInit } from '@angular/core';
-import { ConferenceData } from '../../providers/conference-data';
+import { MapData } from '../../providers/map-data';
 import { Platform } from '@ionic/angular';
 import { DOCUMENT } from '@angular/common';
 import { Router } from '@angular/router';
@@ -22,7 +22,7 @@ export class MapPage implements AfterViewInit {
 
   constructor(
     @Inject(DOCUMENT) private doc: Document,
-    public confData: ConferenceData,
+    public mapfData: MapData,
     public platform: Platform,
     private router: Router,
     private pageService: PageService
@@ -51,7 +51,7 @@ export class MapPage implements AfterViewInit {
 
 
     // Use your conference data to add markers
-    this.confData.getMap().subscribe((mapData: any) => {
+    this.mapfData.getMap().subscribe((mapData: any) => {
       mapData.forEach((markerData: any) => {
         const marker = L.marker([markerData.lat, markerData.lng]).addTo(map);
         marker.bindPopup(`<h5>${markerData.name}</h5>`);
