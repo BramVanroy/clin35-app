@@ -20,7 +20,8 @@
     <h3 class="ion-padding-top ion-padding-start">About</h3>
 
     <p class="ion-padding-start ion-padding-end">
-      The 35th edition of the European Summer School in Logic, Language and Information (ESSLLI) takes place from 29 July - 9 August, 2024 at the University of Leuven, Belgium.
+      The 35th edition of the European Summer School in Logic, Language and Information (ESSLLI) takes place from 29
+      July - 9 August, 2024 at the University of Leuven, Belgium.
     </p>
 
     <!--     <h3 class="ion-padding-top ion-padding-start">Details</h3>
@@ -47,34 +48,36 @@
       </ion-item>
     </ion-list>
  -->
- <h3 class="ion-padding-top ion-padding-start">Helpdesk</h3>
- <p class="ion-padding-start ion-padding-end">
-  If you have questions or encounter any problems during the summer school, get in touch by mail or through Discord. 
-</p>
- <ion-list lines="none">
-  <ion-item>
-    <ion-label>
-      Email
-    </ion-label>
-    <ion-label class="ion-text-end">
-      <a href="mailto:esslli2024@kuleuven.be">esslli2024&#64;kuleuven.be</a>
-    </ion-label>
-  </ion-item>
-  <ion-item>
-    <ion-label>
-      Discord
-    </ion-label>
-    <ion-label class="ion-text-end">
-      <a href="https://discord.com/channels/1241387568105394277/1264012871206043760">#helpdesk channel</a>
-    </ion-label>
-  </ion-item>
-  </ion-list>
+    <h3 class="ion-padding-top ion-padding-start">Helpdesk</h3>
+    <p class="ion-padding-start ion-padding-end">
+      If you have questions or encounter any problems during the summer school, get in touch by mail or through Discord.
+    </p>
+    <ion-list lines="none">
+      <ion-item>
+        <ion-label>
+          Email
+        </ion-label>
+        <ion-label class="ion-text-end">
+          <a href="mailto:esslli2024@kuleuven.be">esslli2024&#64;kuleuven.be</a>
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>
+          Discord
+        </ion-label>
+        <ion-label class="ion-text-end">
+          <a href="https://discord.com/channels/1241387568105394277/1264012871206043760">#helpdesk channel</a>
+        </ion-label>
+      </ion-item>
+    </ion-list>
 
 
     <h3 class="ion-padding-top ion-padding-start">Internet</h3>
 
     <p class="ion-padding-start ion-padding-end">
-      Wifi is available either through Eduroam or through the guest network. The same networks are available at the student residences. Note that the password is different for each week of the conference. The current login details can be found below:
+      Wifi is available either through Eduroam or through the guest network. The same networks are available at the
+      student residences. Note that the password is different for each week of the conference. The current login details
+      can be found below:
     </p>
 
     <ion-list lines="none">
@@ -83,17 +86,21 @@
           Wifi network
         </ion-label>
         <ion-label class="ion-text-end">
-          ica{{conferenceDate | date: 'y'}}
+          {{ wifiInfo.ssid }}
         </ion-label>
       </ion-item>
       <ion-item>
         <ion-label>
-          Password
+          Password (valid until {{ wifiInfo.valid_date }})
         </ion-label>
         <ion-label class="ion-text-end">
-          makegoodthings
+          {{ wifiInfo.password }}
         </ion-label>
       </ion-item>
     </ion-list>
+    <!-- Add QR Code Image -->
+    <div *ngIf="wifiInfo.image_link" class="qr-code">
+      <img [src]="wifiInfo.image_link" alt="Wi-Fi QR Code">
+    </div>
   </div>
 </ion-content>
