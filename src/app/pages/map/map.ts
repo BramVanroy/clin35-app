@@ -97,9 +97,9 @@ export class MapPage implements AfterViewInit {
 
     legend.onAdd = () => {
       const div = L.DomUtil.create('div', 'info legend');
-      const types = ['campus', 'restaurant', 'residence', 'irishcollege'];
-      const labels = ['Campus', 'Restaurants', 'Student Residences', 'Lecturer\'s Accommodation'];
-      const colors = ['assets/icons/marker-icon-blue.png', 'assets/icons/marker-icon-red.png', 'assets/icons/marker-icon-orange.png', 'assets/icons/marker-icon-green.png'];
+      const types = ['restaurant', 'residence', 'irishcollege'];
+      const labels = ['Restaurants', 'Student Residences', 'Lecturer\'s Accommodation'];
+      const colors = ['assets/icons/marker-icon-red.png', 'assets/icons/marker-icon-orange.png', 'assets/icons/marker-icon-green.png'];
 
       for (let i = 0; i < types.length; i++) {
         div.innerHTML +=
