@@ -1,6 +1,6 @@
 {
-	"appId": "ionic.conference.app",
-	"appName": "ionic-conference-app",
+	"appId": "eu.esslli.esslli2024",
+	"appName": "ESSLLI 2024",
 	"webDir": "www",
 	"bundledWebRuntime": false,
 	"plugins": {

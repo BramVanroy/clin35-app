@@ -17,8 +17,10 @@
 
 <ion-content>
   <div *ngIf="session" class="ion-padding">
-    <h1>{{session.title}}</h1>
     <span *ngFor="let track of session?.tracks" [class]="'session-track-'+track.toLowerCase()">{{track}}</span>
+    <h1>{{session.title}}</h1>
+    <ion-text color="medium">{{session.lecturer}}</ion-text>
+
     <p>{{session.description}}</p>
     <ion-text color="medium">
       {{session.timeStart}} &ndash; {{session.timeEnd}}

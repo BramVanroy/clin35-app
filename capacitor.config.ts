@@ -1,13 +1,13 @@
 import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'ionic.conference.app',
-  appName: 'ionic-conference-app',
+  appId: 'eu.esslli.esslli2024', // Update the app ID here
+  appName: 'ESSLLI 2024', // Update the app name here
   webDir: 'www',
   bundledWebRuntime: false,
   plugins: {
     SplashScreen: {
-      launchShowDuration: 3000,
+      launchShowDuration: 3000,  // Duration in milliseconds
       launchAutoHide: true,
       backgroundColor: "#ffffffff",
       androidSplashResourceName: "splash",
