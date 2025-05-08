@@ -7,7 +7,7 @@ import { map, catchError } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class NewsData {
-  private dataUrl = 'https://raw.githubusercontent.com/timvdc/esslli2024/main/news.json';
+  private dataUrl = 'https://raw.githubusercontent.com/BramVanroy/clin35-app-data/main/news.json';
 
   constructor(private http: HttpClient) { }
 

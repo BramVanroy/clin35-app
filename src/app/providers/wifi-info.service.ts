@@ -7,7 +7,7 @@ import { catchError, map } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class WifiInfoService {
-  private wifiInfoUrl = 'https://raw.githubusercontent.com/timvdc/esslli2024/main/wifi-info.json'; // Update with the actual URL
+  private wifiInfoUrl = 'https://raw.githubusercontent.com/BramVanroy/clin35-app-data/main/wifi-info.json'; // Update with the actual URL
 
   constructor(private http: HttpClient) {}
 

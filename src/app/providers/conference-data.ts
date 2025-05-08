@@ -9,7 +9,7 @@ import { UserData } from './user-data';
   providedIn: 'root'
 })
 export class ConferenceData {
-  private dataUrl = 'https://raw.githubusercontent.com/timvdc/esslli2024/main/data_app.json';
+  private dataUrl = 'https://raw.githubusercontent.com/BramVanroy/clin35-app-data/main/data_app.json';
   data: any;
 
   constructor(public http: HttpClient, public user: UserData) {}

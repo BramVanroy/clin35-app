@@ -64,12 +64,12 @@ export class MapPage implements AfterViewInit {
   getCustomIcon(type: string): L.Icon {
     let iconUrl = 'assets/icons/marker-icon.png'; // Default icon
     switch (type) {
-      case 'irishcollege':
+      case 'campus':
         iconUrl = 'assets/icons/marker-icon-green.png';
         break;
-      case 'residence':
-        iconUrl = 'assets/icons/marker-icon-orange.png';
-        break;
+      // case 'residence':
+      //   iconUrl = 'assets/icons/marker-icon-orange.png';
+      //   break;
       case 'restaurant':
         iconUrl = 'assets/icons/marker-icon-red.png';
         break;
@@ -97,9 +97,14 @@ export class MapPage implements AfterViewInit {
 
     legend.onAdd = () => {
       const div = L.DomUtil.create('div', 'info legend');
-      const types = ['restaurant', 'residence', 'irishcollege'];
-      const labels = ['Restaurants', 'Student Residences', 'Lecturer\'s Accommodation'];
-      const colors = ['assets/icons/marker-icon-red.png', 'assets/icons/marker-icon-orange.png', 'assets/icons/marker-icon-green.png'];
+      // const types = ['restaurant', 'residence', 'irishcollege'];
+      // const labels = ['Restaurants', 'Student Residences', 'Lecturer\'s Accommodation'];
+      // const colors = ['assets/icons/marker-icon-red.png', 'assets/icons/marker-icon-orange.png', 'assets/icons/marker-icon-green.png'];
+      
+      const types = ['restaurant', 'campus'];
+      const labels = ['Restaurants', 'Campus'];
+      const colors = ['assets/icons/marker-icon-red.png', 'assets/icons/marker-icon-green.png'];
+
 
       for (let i = 0; i < types.length; i++) {
         div.innerHTML +=

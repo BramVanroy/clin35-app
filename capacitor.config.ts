@@ -1,8 +1,8 @@
 import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'eu.esslli.esslli2024', // Update the app ID here
-  appName: 'ESSLLI 2024', // Update the app name here
+  appId: 'clin35.cll.kuleuven.be', // Update the app ID here
+  appName: 'CLIN 35', // Update the app name here
   webDir: 'www',
   bundledWebRuntime: false,
   plugins: {

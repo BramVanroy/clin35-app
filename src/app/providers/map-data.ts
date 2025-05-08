@@ -7,7 +7,7 @@ import { map, catchError } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class MapData {
-  private mapDataUrl = 'https://raw.githubusercontent.com/timvdc/esslli2024/main/map_data.json'; // URL of the separate map data JSON
+  private mapDataUrl = 'https://raw.githubusercontent.com/BramVanroy/clin35-app-data/main/map_data.json'; // URL of the separate map data JSON
   mapData: any;
 
   constructor(public http: HttpClient) {}
